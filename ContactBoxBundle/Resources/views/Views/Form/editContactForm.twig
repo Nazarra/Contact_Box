@@ -1,0 +1,40 @@
+
+
+{% block title %}Edycja kontaktu{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+
+
+    {%  for row in form.email %}
+
+            {{ form_row(row) }}
+
+
+        {% endfor %}
+
+
+    {%  for row in form.address %}
+
+        {{ form_row(row) }}
+
+
+    {% endfor %}
+
+    {%  for row in form.phone %}
+
+        {{ form_row(row) }}
+
+
+    {% endfor %}
+
+    {{  form_errors(form) }}
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
