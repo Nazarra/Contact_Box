@@ -1,0 +1,48 @@
+
+
+{% block title %}Twoje kontakty{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>
+                <a href="{{ path('newContact')}}">Dodaj nowy kontakt</a>
+            </th>
+
+    </table>
+
+    <table border ="1">
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Opis</th>
+            <th>Rozwiń</th>
+            <th colspan="2">Opcje</th>
+
+        </tr>
+
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.getId }}</td>
+                <td>{{ contact.getFirstName }}</td>
+                <td>{{ contact.getLastName }}</td>
+                <td>{{ contact.getDescription }}</td>
+                <td>
+                    <a href="{{ path('detailsContact', {'id': contact.getId}) }}">Rozwiń</a>
+                </td>
+                <td>
+                    <a href="{{ path('editContact', {'id': contact.getId}) }}">Edytuj</a>
+                </td>
+                <td>
+                    <form action="{{ path('removeContact',{'id':contact.getId}) }}" method="POST">
+                        <button>Usuń</button>
+                    </form>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

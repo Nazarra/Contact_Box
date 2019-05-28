@@ -25,21 +25,21 @@ class Phone
     /**
      * @var int
      *
-     * @ORM\Column(name="businessPhone", type="integer")
+     * @ORM\Column(name="businessPhone", type="integer" , nullable=true)
      */
     private $businessPhone;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="privatePhone", type="integer")
+     * @ORM\Column(name="privatePhone", type="integer" , nullable=true)
      */
     private $privatePhone;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="otherPhone", type="integer")
+     * @ORM\Column(name="otherPhone", type="integer" , nullable=true)
      */
     private $otherPhone;
 

@@ -1,0 +1,84 @@
+
+
+{% block title %}Karta {{ contact.getFirstName }}, {{ contact.getLastName }}{% endblock %}
+
+{% block content %}
+
+    <table border ="1">
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{{ contact.getFirstName }}</td>
+            <td>{{ contact.getLastName }}</td>
+            <td>{{ contact.getDescription }}</td>
+            </tr>
+    </table>
+
+    <table border ="1">
+        <tr>
+            <th colspan="3">Adres</th>
+        </tr>
+        <tr>
+            <td>{{ address ? address.getCity|default('....') }}</td>
+            <td>{{ address ? address.getStreet|default('....') }}</td>
+            <td>{{ address ? address.getHauseNumber|default('....') }} / {{ address ? address.getApartmentNumber|default('nie wprowadzono') }} </td>
+        </tr>
+    </table>
+
+    <table border ="1">
+        <tr>
+            <th scope="col" colspan="2">Telefon</th>
+        </tr>
+        <tr>
+            <th scope="row">Telefon słóżbowy</th>
+            <td>{{phone ? phone.getBusinessPhone|default('....') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Telefon prywatny</th>
+            <td>{{phone ? phone.getPrivatePhone|default('....') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Telefon dodatkowy</th>
+            <td>{{phone ? phone.getOtherPhone|default('....') }}</td>
+        </tr>
+
+    </table>
+
+    </table>
+
+    <table border ="1">
+        <tr>
+            <th scope="col" colspan="2">Adres email</th>
+        </tr>
+        <tr>
+            <th scope="row">Email słóżbowy</th>
+            <td>{{ email ? email.getBusinessEmail|default('....') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Email prywatny</th>
+            <td>{{ email ? email.getPrivateEmail|default('....') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Email dodatkowy</th>
+            <td>{{ email ? email.getOtherEmail|default('....') }}</td>
+        </tr>
+
+    </table>
+
+    <table>
+        <tr>
+            <th>
+                <a href="{{ path('showAllContact')}}">Powrót</a>
+            </th>
+
+    </table>
+
+
+
+
+
+
+{% endblock %}

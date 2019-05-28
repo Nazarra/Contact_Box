@@ -143,77 +143,6 @@ class Contact
     }
 
     /**
-     * Set address
-     *
-     * @param \ContactBoxBundle\Entity\Address $address
-     *
-     * @return Contact
-     */
-    public function setAddress(\ContactBoxBundle\Entity\Address $address = null)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return \ContactBoxBundle\Entity\Address
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set email
-     *
-     * @param \ContactBoxBundle\Entity\Email $email
-     *
-     * @return Contact
-     */
-    public function setEmail(\ContactBoxBundle\Entity\Email $email = null)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return \ContactBoxBundle\Entity\Email
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param \ContactBoxBundle\Entity\Phone $phone
-     *
-     * @return Contact
-     */
-    public function setPhone(\ContactBoxBundle\Entity\Phone $phone = null)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return \ContactBoxBundle\Entity\Phone
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-    /**
      * Constructor
      */
     public function __construct()
@@ -248,6 +177,16 @@ class Contact
     }
 
     /**
+     * Get address
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
      * Add email
      *
      * @param \ContactBoxBundle\Entity\Email $email
@@ -272,6 +211,16 @@ class Contact
     }
 
     /**
+     * Get email
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Add phone
      *
      * @param \ContactBoxBundle\Entity\Phone $phone
@@ -293,5 +242,41 @@ class Contact
     public function removePhone(\ContactBoxBundle\Entity\Phone $phone)
     {
         $this->phone->removeElement($phone);
+    }
+
+    /**
+     * Get phone
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setPhone($phones)
+    {
+        $this->phone = $phones;
+
+        return $this;
+    }
+
+    public function setAddress($addresses)
+    {
+        $this->address = $addresses;
+
+        return $this;
+    }
+
+    public function setEmail($emails)
+    {
+        //var_dump($emails); die('-');
+        foreach ($emails as $email)
+        {
+            $email->setContact($this);
+            $this->addEmail($this);
+        }
+
+        return $this;
     }
 }

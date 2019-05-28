@@ -26,21 +26,21 @@ class Email
     /**
      * @var string
      *
-     * @ORM\Column(name="businessEmail", type="string", length=255)
+     * @ORM\Column(name="businessEmail", type="string", length=255 , nullable=true)
      */
     private $businessEmail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="privateEmail", type="string", length=255)
+     * @ORM\Column(name="privateEmail", type="string", length=255 , nullable=true)
      */
     private $privateEmail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="otherEmail", type="string", length=255)
+     * @ORM\Column(name="otherEmail", type="string", length=255 , nullable=true)
      */
     private $otherEmail;
 

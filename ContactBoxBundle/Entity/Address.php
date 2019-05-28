@@ -25,28 +25,28 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=40)
+     * @ORM\Column(name="city", type="string", length=40 , nullable=true)
      */
     private $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="street", type="string", length=255)
+     * @ORM\Column(name="street", type="string", length=255 , nullable=true)
      */
     private $street;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hauseNumber", type="string", length=10)
+     * @ORM\Column(name="hauseNumber", type="string", length=10 , nullable=true)
      */
     private $hauseNumber;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apartmentNumber", type="string", length=10)
+     * @ORM\Column(name="apartmentNumber", type="string", length=10 , nullable=true)
      */
     private $apartmentNumber;
     /**
